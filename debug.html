@@ -1,0 +1,37 @@
+<html>
+<head>
+    <title>Debug</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+          var adr = "Post/Multipart"
+          var params = {txt:"text",fl:"file"};
+          $("#btnGet").click(function(){
+            $.get(adr,params)
+          });
+          $("#btnPost").click(function(){
+            $.post(adr,params)
+          });
+      });
+    </script>
+</head>
+<body>
+  <h1>Debug</h1>
+  <div><label>Get:<button id="btnGet"/>Get</button></label></div>
+  <div><label>Post:<button id="btnPost"/>Post</button></label></div>
+  <div>
+      <form name="frm" action="Post/Multipart" method="GET" enctype="multipart/form-data">
+        <div><label>Text: <input name="txt" type="text" val="text"/></label></div>
+        <div><label>File: <input name="fl" type="file" val="file"/></label>/<div>
+        <div><input type="submit" text="Get"/></div>
+      </form>
+  </div>
+
+  <div>
+      <form name="frm" action="Post/Multipart" method="POST" enctype="multipart/form-data">
+        <div><label>Text: <input name="txt" type="text" val="text"/></label></div>
+        <div><label>File: <input name="fl" type="file" val="file"/></label>/<div>
+        <div><input type="submit" text="Post"/></div>
+      </form>
+  </div>
+</body>
